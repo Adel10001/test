@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار قصير</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f9f9f9;
+            padding: 20px;
+		
+        }
+        .quiz-container {
+		    
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .quiz-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .quiz-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .question {
+		 margin-bottom: 15px;
+		 
+        }
+        .question h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+			
+        }
+        .answers input {
+            margin-right: 10px;
+			
+        }
+        .submit-btn {
+		    
+		    align: center;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+		    
+            background-color: #218838;
+        }
+		h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+ 
+<div class="quiz-container">
+   <h1>في الشكل المجاور خليــــة نباتية أجب عن التالي</h1> 
+    <!-- صورة الاختبار -->
+    <div class="quiz-image">
+        <img src="your-image.jpg" alt="صورة الاختبار">
+    </div>
+
+    <!-- السؤال الأول -->
+    <div class="question">
+        <h3>ماهو المشار إليه باللون الأحمر</h3>
+        <div class="answers">
+            <label><input type="radio" name="q1" value="1"> غشاء خلوي</label><br>
+            <label><input type="radio" name="q1" value="2"> غطاء خلوي</label><br>
+            <label><input type="radio" name="q1" value="3"> جدار خلوي</label><br>
+        </div>
+    </div>
+
+    <!-- السؤال الثاني -->
+    <div class="question">
+        <h3>ماهو المشار إليه باللون البرتقالي</h3>
+        <div class="answers">
+            <label><input type="radio" name="q2" value="1"> غشاء خلوي</label><br>
+            <label><input type="radio" name="q2" value="2"> غطاء خلوي</label><br>
+            <label><input type="radio" name="q2" value="3"> جدار خلوي</label><br>
+        </div>
+    </div>
+
+    <!-- زر الإرسال -->
+    <button class="submit-btn" onclick="checkAnswers()">إرسال</button>
+
+    <!-- رسالة النتيجة -->
+    <div id="result" style="margin-top: 20px; font-size: 18px;text-align: center;" ></div> 
+</div>
+
+<script>
+    function checkAnswers() {
+        let score = 0;
+        // الإجابة الصحيحة للسؤال الأول هي الخيار 1
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        if (q1 && q1.value === "3") {
+            score++;
+        }
+        // الإجابة الصحيحة للسؤال الثاني هي الخيار 2
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        if (q2 && q2.value === "1") {
+            score++;
+        }
+        // عرض النتيجة
+        const result = document.getElementById('result');
+        result.innerHTML = `لقد أجبت على ${score} من 2 أسئلة`;
+    }
+</script>
+
+</body>
+</html>
